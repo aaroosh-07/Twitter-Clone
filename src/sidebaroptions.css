@@ -1,0 +1,22 @@
+.sidebaroptions{
+    display: flex;
+    align-items: center;
+}
+
+.sidebaroptions:hover{
+    background-color:  #e8f5fe;
+    border-radius: 30px;
+    color:var(--twitter-color)
+}
+
+.sidebaroptions > .MuiSvgIcon-root{
+    padding:20px;
+};
+
+.sidebaroptions > h2{
+    font-weight: 400;
+}
+
+.sidebaroptions--active{
+    color:var(--twitter-color);
+}
