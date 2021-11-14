@@ -1,0 +1,5 @@
+.Feed{
+    flex: 0.4;
+    min-width: min-content;
+    overflow-y: scroll;
+}

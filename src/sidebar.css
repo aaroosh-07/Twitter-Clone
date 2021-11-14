@@ -1,3 +1,10 @@
+.Sidebar{
+    padding: 0 30px;
+    margin-top: 20px;
+    flex: 0.3;
+    height: 100vh;
+}
+
 .sidebar-tweet{
     background-color: var(--twitter-color) !important;
     color:white !important;

@@ -1,0 +1,32 @@
+.post{
+    display:flex;
+    align-items:flex-start;
+    border-bottom: 10px solid var(--twitter-background);
+    padding-bottom: 10px;
+}
+.post_avatar{
+    margin:8px;
+}
+.post_header{
+    margin-top:10px;
+    font-size: 15px;
+}
+
+.post_headerSpecial{
+    color: var(--twitter-color);
+    margin: 2px;
+}
+.post_username{
+    color:var(--twitter-background);
+    font-size:12px;
+}
+.post_image > img {
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+.post_footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
