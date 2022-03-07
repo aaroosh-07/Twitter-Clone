@@ -12,8 +12,6 @@ function Feed() {
         const querySnapshot = await getDocs(collection(db, "post"));
         const data = querySnapshot.map((doc) => doc.data());
         setPosts(data);
-        // db.collection("post").onSnapshot((snapshot)=>
-        //  setPosts(snapshot.docs.map((doc)=>doc.data())))
     }, []);
     return (
         <div className="Feed">
