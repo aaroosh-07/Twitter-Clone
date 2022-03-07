@@ -9,9 +9,12 @@ function Feed() {
     const [post, setPosts] = useState([]);
 
     useEffect(() => {
-        const querySnapshot = await getDocs(collection(db, "post"));
-        const data = querySnapshot.map((doc) => doc.data());
-        setPosts(data);
+        const func = async ()=>{
+            const querySnapshot = await getDocs(collection(db, "post"));
+            const data = querySnapshot.map((doc) => doc.data());
+            setPosts(data);
+        }
+        func();
     }, []);
     return (
         <div className="Feed">
