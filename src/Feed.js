@@ -6,29 +6,29 @@ import { collection, getDocs } from "firebase/firestore";
 import "./Feed.css";
 
 function Feed() {
-    const [post, setPosts] = useState([]);
+  const [post, setPosts] = useState([]);
 
-    useEffect(async () => {
-        const querySnapshot = await getDocs(collection(db, "post"));
-        const data = querySnapshot.map((doc) => doc.data());
-        setPosts(data);
-        // db.collection("post").onSnapshot((snapshot)=>
-        //  setPosts(snapshot.docs.map((doc)=>doc.data())))
-    }, []);
-    return (
-        <div className="Feed">
-            <TweetBox />
-            {post.map((post) => (
-                <Post
-                    displayName={post.displayName}
-                    username={post.username}
-                    verified={post.verified}
-                    image={post.image}
-                    text={post.text}
-                    avatar={post.avatar}
-                />
-            ))}
-            <Post
+  useEffect(async () => {
+    const querySnapshot = await getDocs(collection(db, "post"));
+    const data = querySnapshot.docs.map((doc) => doc.data());
+    setPosts(data);
+    // db.collection("post").onSnapshot((snapshot)=>
+    //  setPosts(snapshot.docs.map((doc)=>doc.data())))
+  }, []);
+  return (
+    <div className="Feed">
+      <TweetBox />
+      {post.map((post) => (
+        <Post
+          displayName={post.displayName}
+          username={post.username}
+          verified={post.verified}
+          image={post.image}
+          text={post.text}
+          avatar={post.avatar}
+        />
+      ))}
+      {/* <Post
                 displayName="aaroosh agarwal"
                 username="aarooshagarwal"
                 verified={true}
@@ -37,9 +37,9 @@ function Feed() {
                 avatar=" "
             />
             <Post />
-            <Post />
-        </div>
-    );
+            <Post /> */}
+    </div>
+  );
 }
 
 export default Feed;
