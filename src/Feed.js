@@ -6,41 +6,29 @@ import { collection, getDocs } from "firebase/firestore";
 import "./Feed.css";
 
 function Feed() {
-    const [post, setPosts] = useState([]);
+  const [post, setPosts] = useState([]);
 
-    useEffect(() => {
-        const func = async ()=>{
-            const querySnapshot = await getDocs(collection(db, "post"));
-            const data = querySnapshot.map((doc) => doc.data());
-            setPosts(data);
-        }
-        func();
-    }, []);
-    return (
-        <div className="Feed">
-            <TweetBox />
-            {post.map((post) => (
-                <Post
-                    displayName={post.displayName}
-                    username={post.username}
-                    verified={post.verified}
-                    image={post.image}
-                    text={post.text}
-                    avatar={post.avatar}
-                />
-            ))}
-            <Post
-                displayName="aaroosh agarwal"
-                username="aarooshagarwal"
-                verified={true}
-                image="https://media.giphy.com/media/juSCTzqDAV1Xq/giphy.gif"
-                text="hi there i am working on a twitter clone feedback appreciated"
-                avatar=" "
-            />
-            <Post />
-            <Post />
-        </div>
-    );
+
+  useEffect(async () => {
+    const querySnapshot = await getDocs(collection(db, "post"));
+    const data = querySnapshot.docs.map((doc) => doc.data());
+    setPosts(data);
+  }, []);
+  return (
+    <div className="Feed">
+      <TweetBox />
+      {post.map((post) => (
+        <Post
+          displayName={post.displayName}
+          username={post.username}
+          verified={post.verified}
+          image={post.image}
+          text={post.text}
+          avatar={post.avatar}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Feed;
