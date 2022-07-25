@@ -8,12 +8,11 @@ import "./Feed.css";
 function Feed() {
   const [post, setPosts] = useState([]);
 
+
   useEffect(async () => {
     const querySnapshot = await getDocs(collection(db, "post"));
     const data = querySnapshot.docs.map((doc) => doc.data());
     setPosts(data);
-    // db.collection("post").onSnapshot((snapshot)=>
-    //  setPosts(snapshot.docs.map((doc)=>doc.data())))
   }, []);
   return (
     <div className="Feed">
@@ -28,16 +27,6 @@ function Feed() {
           avatar={post.avatar}
         />
       ))}
-      {/* <Post
-                displayName="aaroosh agarwal"
-                username="aarooshagarwal"
-                verified={true}
-                image="https://media.giphy.com/media/juSCTzqDAV1Xq/giphy.gif"
-                text="hi there i am working on a twitter clone feedback appreciated"
-                avatar=" "
-            />
-            <Post />
-            <Post /> */}
     </div>
   );
 }
