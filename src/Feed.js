@@ -8,11 +8,14 @@ import "./Feed.css";
 function Feed() {
   const [post, setPosts] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "post"));
+      const data = querySnapshot.docs.map((doc) => doc.data());
+      setPosts(data);
+    };
 
-  useEffect(async () => {
-    const querySnapshot = await getDocs(collection(db, "post"));
-    const data = querySnapshot.docs.map((doc) => doc.data());
-    setPosts(data);
+    fetchData();
   }, []);
   return (
     <div className="Feed">
