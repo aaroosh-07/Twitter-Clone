@@ -20,8 +20,9 @@ function Feed() {
   return (
     <div className="Feed">
       <TweetBox />
-      {post.map((post) => (
+      {post.map((post, id) => (
         <Post
+          key={id}
           displayName={post.displayName}
           username={post.username}
           verified={post.verified}
